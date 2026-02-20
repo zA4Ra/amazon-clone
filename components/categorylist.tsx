@@ -1,8 +1,8 @@
 import { Image, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function CategoryCard({ image }: any) {
+export default function CategoryCard({ image, onPress }: any) {
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={onPress}>
       <Image source={image} style={styles.image} />
     </TouchableOpacity>
   );

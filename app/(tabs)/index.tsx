@@ -6,6 +6,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { useRouter } from "expo-router";
 import CategoryCard from "../../components/categorylist";
 import DealCard from "../../components/dealcard";
 import SearchBar from "../../components/searchbar";
@@ -28,6 +29,8 @@ const deals = [
 ];
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <ScrollView style={styles.container}>
       <SearchBar />
@@ -48,7 +51,15 @@ export default function HomeScreen() {
         <Text style={styles.title}>Categories to explore</Text>
         <View style={styles.grid}>
           {categories.map((item) => (
-            <CategoryCard key={item.id} image={item.image} />
+            <CategoryCard
+              key={item.id}
+              image={item.image}
+              onPress={
+                item.id === "3"
+                  ? () => router.push("/screens/Productpage")
+                  : undefined
+              }
+            />
           ))}
         </View>
       </View>
