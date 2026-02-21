@@ -13,6 +13,7 @@ import SearchBar from "../../components/searchbar";
 
 export default function AddToCartPage() {
   const router = useRouter();
+  const subtotal = 129;
 
   return (
     <View style={styles.container}>
@@ -34,8 +35,22 @@ export default function AddToCartPage() {
             </Text>
           </Text>
 
-          <TouchableOpacity style={styles.checkoutBtn}>
-            <Text style={styles.checkoutText}>Proceed to checkout (1 item)</Text>
+         <TouchableOpacity
+            style={styles.checkoutBtn}
+            onPress={() =>
+              router.push({
+                pathname: "/screens/Paymentpage",
+                params: {
+                  title: "Nespresso Vertuo Next Coffee and Espresso Machine by De'Lo...",
+                  price: "129",
+                  qty: "1",
+                },
+              })
+            }
+          >
+            <Text style={styles.checkoutText}>
+              Proceed to checkout (1 item)
+            </Text>
           </TouchableOpacity>
         </View>
 
